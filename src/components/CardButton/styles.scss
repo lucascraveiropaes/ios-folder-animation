@@ -1,0 +1,55 @@
+.button-container {
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+button {
+    padding: 40px 60px;
+    outline: none;
+    border: none;
+    border-radius: 8px;
+    background: #FFF;
+}
+
+$base-offset: 70px;
+$container-size: calc(100% - (#{$base-offset} * 2) - 80px);
+
+.folder {
+    visibility: hidden;
+
+    .overlay {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        bottom: 0px;
+        right: 0px;
+        z-index: 9;
+    }
+
+    .container {
+        transition: all .9s;
+        position: absolute;
+        top: $base-offset;
+        left: $base-offset;
+        right: $base-offset;
+        bottom: $base-offset;
+        width: $container-size;
+        height: $container-size;
+        z-index: 99;
+        border-radius: 18px;
+        background: #FFF;
+        clip-path: circle(0%);
+        padding: 40px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    }
+
+    &.open {
+        visibility: visible;
+
+        .container {
+            clip-path: circle(100%);
+        }
+    }
+}
