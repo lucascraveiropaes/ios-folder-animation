@@ -1,7 +1,7 @@
-import Login    from "./Login";
+import Home    from "./Home";
 import App      from "./App";
 
 export {
-    Login,
+    Home,
     App,
 }

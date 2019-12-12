@@ -1,5 +1,9 @@
-import CardButton from "./CardButton/";
+import ModuleCard   from "./ModuleCard/";
+import MenuButton   from "./MenuButton/";
+import Icon         from "./Icon/";
 
 export {
-    CardButton
+    ModuleCard,
+    MenuButton,
+    Icon,
 }

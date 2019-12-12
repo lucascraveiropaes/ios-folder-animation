@@ -12,8 +12,8 @@ class App extends Component {
         return (
             <BrowserRouter>
                 <Switch>
-                    <Route path="/login" component={ Pages.Login } />
-                    <Redirect from="/" to="/login" />
+                    <Route path="/home" component={ Pages.Home } />
+                    <Redirect from="/" to="/home" />
                 </Switch>
             </BrowserRouter>
         );

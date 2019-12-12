@@ -1,17 +1,29 @@
 .button-container {
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-}
 
-button {
-    padding: 40px 60px;
-    outline: none;
-    border: none;
-    border-radius: 8px;
-    background: #FFF;
+    button.module-button {
+        width: 200px;
+        height: 180px;
+        outline: none;
+        border: none;
+        border-radius: 8px;
+        background: #FFF;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        span {
+            margin-top: 15px;
+            font-family: "Open Sans", sans-serif;
+            font-size: 16px;
+            color: rgba(0,0,0,0.8);
+        }
+    }
 }
 
 $base-offset: 70px;
-$container-size: calc(100% - (#{$base-offset} * 2) - 80px);
+$container-size: calc(100% - (#{$base-offset} * 2));
 
 .folder {
     visibility: hidden;
@@ -38,11 +50,19 @@ $container-size: calc(100% - (#{$base-offset} * 2) - 80px);
         border-radius: 18px;
         background: #FFF;
         clip-path: circle(0%);
-        padding: 40px;
         display: flex;
         justify-content: flex-start;
         align-items: flex-start;
+        padding: 0px;
         box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+
+        .menu-list {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 20px;
+            flex-wrap: wrap;
+        }
     }
 
     &.open {
@@ -52,4 +72,8 @@ $container-size: calc(100% - (#{$base-offset} * 2) - 80px);
             clip-path: circle(100%);
         }
     }
+}
+
+.slider {
+    height: 100% !important;
 }
