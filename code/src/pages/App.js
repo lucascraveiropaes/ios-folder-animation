@@ -12,8 +12,8 @@ class App extends Component {
         return (
             <BrowserRouter>
                 <Switch>
-                    <Route path="/home" component={ Pages.Home } />
-                    <Redirect from="/" to="/home" />
+                    <Route path="/ios-folder-animation" component={ Pages.Home } />
+                    <Redirect from="/" to="/ios-folder-animation" />
                 </Switch>
             </BrowserRouter>
         );
