@@ -21,7 +21,8 @@ class ModuleCard extends Component {
     menus = []
 
     onEscPress = e => {
-        if(e.keyCode === 27) { // If user press esc
+         // If user press esc
+        if(e.keyCode === 27) {
             this.folder.classList.remove("open");
             setTimeout(this.resetState, 500);
             this.updateURL(true);
@@ -75,6 +76,9 @@ class ModuleCard extends Component {
     }
 
     toggleFolder = () => {
+        if (this.menus.length === 0)
+            return window.location.href = this.props.item.path;
+
         if (this.state.index !== 0)
             return this.setState({ index: 0 });
 
@@ -86,12 +90,16 @@ class ModuleCard extends Component {
 
     onMenuClick = i => this.setState({ index: 1, menu: i.id });
 
-    onSubmenuClick = i => console.log("Simbora");
+    onSubmenuClick = i => window.location.href = i.path;
 
     render() {
         const { index, menu } = this.state;
         const { item } = this.props;
         const path = item.path.replace("/", "");
+        let menuItem = null;
+
+        if (menu > -1)
+            menuItem = data.find(el => el.id === menu);
 
         return (
             <div className="button-container">
@@ -106,15 +114,23 @@ class ModuleCard extends Component {
                         <Carousel speed={ 250 } slideIndex={ index } withoutControls={ true } swiping={ false } disableEdgeSwiping={ true } dragging={ false } pauseOnHover={ false }>
                             <div className="menu-list">
                                 { this.menus.map((i, k) =>
-                                    <MenuButton k={`menu_${k*i.id}_${i.id}`} menu={ i } onClick={ this.onMenuClick }/>
+                                    <MenuButton key={`menu_${k*i.id}_${i.id}`} menu={ i } onClick={ this.onMenuClick }/>
                                 )}
                             </div>
-                            <div className="menu-list">
-                                {(menu) && (
-                                    data.filter(el => el.parent_id === menu).map((i, k) =>
-                                        <MenuButton k={`submenu_${k}_${i.id}`} menu={ i } onClick={ this.onSubmenuClick }/>
-                                    )
-                                )}
+                            <div>
+                                {(menu > -1) && [
+                                    <div className="header-container">
+                                        <button onClick={ this.toggleFolder }>
+                                            <Icon name="arrow-back" size={ 25 }/>
+                                        </button>
+                                        <h4>{ menuItem.name }</h4>
+                                    </div>,
+                                    <div className="menu-list" style={{ paddingTop: 0 }}>
+                                        { data.filter(el => el.parent_id === menu).map((i, k) =>
+                                            <MenuButton key={`submenu_${k}_${i.id}`} menu={ i } onClick={ this.onSubmenuClick }/>
+                                        )}
+                                    </div>
+                                ]}
                             </div>
                         </Carousel>
                     </div>

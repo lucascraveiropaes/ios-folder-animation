@@ -17,6 +17,7 @@ const icons = {
     "geracao-plo": require("./geracao-plo.png"),
     "transporte": require("./transporte.png"),
     "relatorios": require("./relatorios.png"),
+    "arrow-back": require("./arrow-back.png"),
     "circuitos": require("./circuitos.png"),
     "topologia": require("./topologia.png"),
     "acesso": require("./acesso.png"),
