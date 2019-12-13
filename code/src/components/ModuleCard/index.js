@@ -24,6 +24,7 @@ class ModuleCard extends Component {
         if(e.keyCode === 27) { // If user press esc
             this.folder.classList.remove("open");
             setTimeout(this.resetState, 500);
+            this.updateURL(true);
         }
     }
 
@@ -60,13 +61,8 @@ class ModuleCard extends Component {
 
     componentWillUnmount = () => document.removeEventListener("keydown", this.onEscPress, false);
 
-    toggleFolder = () => {
-        if (this.state.index !== 0)
-            return this.setState({ index: 0 });
-
-            console.log(this.folder.id);
-
-        if (this.folder.classList.contains("open") === false) {
+    updateURL = (clear = false) => {
+        if (!clear && this.folder.classList.contains("open") === false) {
             const menu = data.find(el => el.id === this.props.item.id);
             const path = menu.path.replace("/", "");
 
@@ -76,6 +72,13 @@ class ModuleCard extends Component {
         } else {
             window.history.pushState(null, "", window.location.href.replace(`?folder=${this.folder.id}`, ""));
         }
+    }
+
+    toggleFolder = () => {
+        if (this.state.index !== 0)
+            return this.setState({ index: 0 });
+
+        this.updateURL();
 
         this.folder.classList.toggle("open");
         setTimeout(this.resetState, 500);

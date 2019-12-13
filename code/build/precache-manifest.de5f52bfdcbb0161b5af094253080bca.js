@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "819edcaa77686c46eb4482741585ca28",
+    "revision": "cf98842c300a9e03dae11f5a481894d3",
     "url": "/ios-folder-animation/index.html"
   },
   {
-    "revision": "c82a16f7daa0ea8b2436",
+    "revision": "38a82bd0bcacbd748fd7",
     "url": "/ios-folder-animation/static/css/main.61f6f26f.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ios-folder-animation/static/js/2.9093b0ed.chunk.js"
   },
   {
-    "revision": "c82a16f7daa0ea8b2436",
-    "url": "/ios-folder-animation/static/js/main.a21747f4.chunk.js"
+    "revision": "38a82bd0bcacbd748fd7",
+    "url": "/ios-folder-animation/static/js/main.1990503c.chunk.js"
   },
   {
     "revision": "bd6c19c78efc96f09eef",
